@@ -1,0 +1,493 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #fff8f8;
+  --dark: #241b20;
+  --muted: #756970;
+  --accent: #d94f70;
+  --accent-dark: #b83d5b;
+  --soft: #ffe5eb;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--dark);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 30px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 190, 207, .45), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(255, 210, 220, .5), transparent 30%),
+    var(--bg);
+}
+
+.hero-content {
+  max-width: 850px;
+  animation: fadeUp 1.2s ease both;
+}
+
+.small-label,
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+h1,
+h2,
+.signature,
+.final-message p {
+  font-family: "Dancing Script", cursive;
+}
+
+h1 {
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: .95;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+h1 span,
+h2 span {
+  color: var(--accent);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 35px;
+}
+
+.primary-btn {
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 15px 27px;
+  border-radius: 50px;
+  font-size: .95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(217, 79, 112, .25);
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  background: var(--accent-dark);
+  box-shadow: 0 16px 35px rgba(217, 79, 112, .35);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 25px;
+  color: #9c8e94;
+  font-size: .72rem;
+  letter-spacing: 2px;
+  animation: bounce 2s infinite;
+}
+
+.section {
+  max-width: 1050px;
+  margin: auto;
+  padding: 120px 25px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: clamp(2.7rem, 6vw, 4.5rem);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.intro {
+  max-width: 650px;
+  margin: auto;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+.timeline {
+  position: relative;
+  max-width: 760px;
+  margin: 70px auto 0;
+  text-align: left;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #f2b8c5;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 55px;
+  margin-bottom: 45px;
+}
+
+.dot {
+  position: absolute;
+  left: 6px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border: 4px solid var(--bg);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #f2b8c5;
+}
+
+.timeline-card {
+  background: white;
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(60, 20, 35, .07);
+}
+
+.timeline-card span {
+  color: var(--accent);
+  font-size: .68rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.timeline-card h3 {
+  margin: 8px 0;
+  font-size: 1.25rem;
+}
+
+.timeline-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: .92rem;
+}
+
+.memories {
+  max-width: 1150px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 55px;
+}
+
+.photo-card {
+  background: white;
+  padding: 12px;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(60, 20, 35, .07);
+  transform: rotate(-1deg);
+  transition: transform .3s ease;
+}
+
+.photo-card:nth-child(2) {
+  transform: rotate(1.5deg);
+}
+
+.photo-card:hover {
+  transform: translateY(-8px) rotate(0);
+}
+
+.photo-placeholder {
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #ffe1e8, #fff1f4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #c78394;
+}
+
+.photo-placeholder div {
+  font-size: 3.5rem;
+  margin-bottom: 8px;
+}
+
+.photo-placeholder span {
+  font-size: .65rem;
+  letter-spacing: 2px;
+}
+
+.photo-card p {
+  padding: 15px 5px 8px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.photo-tip {
+  color: #9a8d92;
+  font-size: .75rem;
+  margin-top: 35px;
+}
+
+code {
+  background: #ffe7ec;
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 55px;
+}
+
+.reason-card {
+  padding: 30px 20px;
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(60, 20, 35, .06);
+  transition: transform .3s ease;
+}
+
+.reason-card:hover {
+  transform: translateY(-7px);
+}
+
+.icon {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.reason-card h3 {
+  margin-bottom: 10px;
+}
+
+.reason-card p {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: .8rem;
+}
+
+.letter-section {
+  padding: 100px 25px;
+  background: #fff0f3;
+}
+
+.letter {
+  max-width: 720px;
+  margin: auto;
+  background: white;
+  padding: 55px;
+  border-radius: 5px;
+  box-shadow: 0 18px 50px rgba(80, 30, 45, .09);
+  text-align: left;
+  position: relative;
+}
+
+.letter::before {
+  content: "♡";
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  color: #f2b0c0;
+  font-size: 3rem;
+}
+
+.letter h2 {
+  font-size: 3.5rem;
+  margin-bottom: 25px;
+}
+
+.letter > p:not(.section-label):not(.signature) {
+  color: var(--muted);
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.signature {
+  font-size: 1.8rem;
+  margin-top: 30px;
+  line-height: 1.2;
+}
+
+.signature span {
+  color: var(--accent);
+}
+
+.final-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 25px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 105, 145, .17), transparent 30%),
+    #fff8f8;
+}
+
+.final-content {
+  max-width: 750px;
+}
+
+.final-section h2 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1;
+  margin-bottom: 35px;
+}
+
+.final-message {
+  display: none;
+  animation: finalReveal 1s ease both;
+  margin-top: 40px;
+}
+
+.final-message.show {
+  display: block;
+}
+
+.big-heart {
+  font-size: 5rem;
+  animation: heartbeat 1.2s infinite;
+}
+
+.final-message h2 {
+  margin: 15px 0;
+}
+
+.final-message p {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.final-message .forever {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-top: 20px;
+}
+
+footer {
+  padding: 25px;
+  text-align: center;
+  color: #a29299;
+  font-size: .75rem;
+}
+
+#hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -30px;
+  animation: floatUp linear forwards;
+  opacity: .7;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.18); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.12); }
+}
+
+@keyframes finalReveal {
+  from {
+    opacity: 0;
+    transform: scale(.75) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .photo-grid,
+  .reasons {
+    grid-template-columns: 1fr;
+    max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .letter {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    padding: 20px;
+  }
+
+  .section {
+    padding: 85px 20px;
+  }
+
+  .timeline-card {
+    padding: 22px;
+  }
+}
