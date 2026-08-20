@@ -516,7 +516,9 @@ footer {
 .myanmar {
     font-family: "Noto Sans Myanmar", sans-serif;
     line-height: 2;
+  
+  
 }
-body {
+/* body {
     font-family: "Noto Sans Myanmar", "Poppins", sans-serif;
-}
+} */
